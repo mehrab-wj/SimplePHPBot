@@ -99,7 +99,7 @@ function SendSticker($ChatId, $sticker_ID)
 'sticker'=>$sticker_ID
 ]);
 }
-function Forward($KojaShe,$AzKoja,$KodomMSG)
+function Forward($KojaShe,$AzKoja,$KodomMSG) // کیرم تو فانکشن نوشتنت خخ
 {
 makereq('ForwardMessage',[
 'chat_id'=>$KojaShe,
