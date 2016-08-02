@@ -58,7 +58,7 @@ function apiRequest($method, $parameters) {
       $val = json_encode($val);
     }
   }
-  $url = API_URL.$method.'?'.http_build_query($parameters);
+  $url = "https://api.telegram.org/bot".API_KEY."/".$method.'?'.http_build_query($parameters);
 
   $handle = curl_init($url);
   curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
