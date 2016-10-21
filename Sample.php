@@ -68,6 +68,16 @@ $textmessage = isset($update->message->text)?$update->message->text:'';
 $reply = $update->message->reply_to_message->forward_from->id;
 $stickerid = $update->message->reply_to_message->sticker->file_id;
 
+$photo = $update->message->photo;
+$video = $update->message->video;
+$sticker = $update->message->sticker;
+$file = $update->message->document;
+$music = $update->message->audio;
+$voice = $update->message->voice;
+$forward = $update->message->forward_from;
+
+
+
 $admin = 66443035;
 //-------
 function SendMessage($ChatId, $TextMsg)
@@ -92,8 +102,14 @@ makereq('ForwardMessage',[
 'from_chat_id'=>$AzKoja,
 'message_id'=>$KodomMSG
 ]);
-
 }
+
+function save($filename,$TXTdata)
+	{
+	$myfile = fopen("data/".$filename, "w") or die("Unable to open file!");
+	fwrite($myfile, "$TXTdata");
+	fclose($myfile);
+	}
 //===========
 
 
