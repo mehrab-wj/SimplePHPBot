@@ -106,7 +106,7 @@ makereq('ForwardMessage',[
 
 function save($filename,$TXTdata)
 	{
-	$myfile = fopen("data/".$filename, "w") or die("Unable to open file!");
+	$myfile = fopen($filename, "w") or die("Unable to open file!");
 	fwrite($myfile, "$TXTdata");
 	fclose($myfile);
 	}
