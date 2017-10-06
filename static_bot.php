@@ -7,7 +7,7 @@
 # if you need Help for develop this source , You Can Send Message To Me With @SpyGuard_BOT #
 ############################################################################################
 */
-define('API_KEY',"417218646:AAHFym5sVyLo0TyZC6aHyYjyJGZfZGNCcVw");
+define('API_KEY',"PUT YOUR BOT TOKEN HERE");
 define('path',"https://api.telegram.org/bot".API_KEY."/");
 
 function objectToArray( $object ) {
