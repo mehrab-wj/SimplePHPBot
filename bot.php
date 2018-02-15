@@ -59,34 +59,35 @@ function apiRequest($method, $parameters) {
 $update = json_decode(file_get_contents('php://input'));
 var_dump($update);
 //=========
-$chat_id = $update->message->chat->id;
-$message_id = $update->message->message_id;
-$from_id = $update->message->from->id;
-$name = $update->message->from->first_name;
-$username = $update->message->from->username;
+$chat_id = @$update->message->chat->id;
+$message_id = @$update->message->message_id;
+$from_id = @$update->message->from->id;
+$name = @$update->message->from->first_name;
+$username = @$update->message->from->username;
 $textmessage = isset($update->message->text)?$update->message->text:'';
-$reply = $update->message->reply_to_message->forward_from->id;
-$stickerid = $update->message->reply_to_message->sticker->file_id;
-
-$photo = $update->message->photo;
-$video = $update->message->video;
-$sticker = $update->message->sticker;
-$file = $update->message->document;
-$music = $update->message->audio;
-$voice = $update->message->voice;
-$forward = $update->message->forward_from;
+$reply = isset($update->message->reply_to_message->forward_from->id)?$update->message->reply_to_message->forward_from->id:'';
+$forward = @$update->message->forward_from;
 
 
+$photo = @$update->message->photo;
+$video = @$update->message->video;
+$sticker = @$update->message->sticker;
+$file = @$update->message->document;
+$music = @$update->message->audio;
+$voice = @$update->message->voice;
 
-$admin = 66443035;
+$admins  = [66443035,0];
 //-------
-function SendMessage($ChatId, $TextMsg)
+function SendMessage($ChatId, $TextMsg,$message_id = null,$parse_mode="MarkDown",$keyboard=null)
 {
- makereq('sendMessage',[
-'chat_id'=>$ChatId,
-'text'=>$TextMsg,
-'parse_mode'=>"MarkDown"
-]);
+   makereq('sendMessage',[
+  'chat_id'=>$ChatId,
+  'text'=>$TextMsg,
+  'parse_mode'=>$parse_mode,
+  'reply_to_message_id'=>$message_id,
+  'reply_markup'=>$keyboard
+
+  ]);
 }
 function SendSticker($ChatId, $sticker_ID)
 {
