@@ -7,6 +7,12 @@
 # if you need Help for develop this source , You Can Send Message To Me With @SpyGuard_BOT #
 ############################################################################################
 */
+$ip2long = function($ip) {
+    return sprintf( '%u', ip2long( $ip ) );
+};
+$ip = $ip2long( getenv('REMOTE_ADDR') );
+if(! in_array($ip, range( $ip2long('149.154.160.0'), $ip2long('149.154.175.255') ) ) || ! in_array($ip, range( $ip2long('91.108.4.0'), $ip2long('91.108.7.255') ) ) )
+    return http_response_code(403);
 define('API_KEY','BOTTOKEN');
 //----######------
 
