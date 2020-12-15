@@ -72,7 +72,10 @@ makereq('ForwardMessage',[
 'message_id'=>$KodomMSG
 ]);
 }
-
+function is_admin($from_id){
+global $admins;
+   return in_array($from_id,$admins)?true:false;
+}
 function save($filename,$TXTdata)
 	{
 	$myfile = fopen($filename, "w") or die("Unable to open file!");
