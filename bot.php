@@ -74,7 +74,7 @@ makereq('ForwardMessage',[
 }
 function is_admin($from_id){
 global $admins;
-   return in_array($from_id,$admins)?true:false;
+   return in_array($from_id,$admins);
 }
 function save($filename,$TXTdata)
 	{
