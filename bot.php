@@ -29,7 +29,7 @@ var_dump($update);
 //=========
 @$chat_id = $update->message->chat->id ? $update->edited_message->chat->id;
 $message_id = @$update->message->message_id;
-@from_id = $update->message->from->id ? $update->edited_message->from->id;
+@$from_id = $update->message->from->id ? $update->edited_message->from->id;
 $name = @$update->message->from->first_name;
 $username = @$update->message->from->username;
 $textmessage = @$update->message->text?:$update->edited_message->text?:$update->channel_post->text;
