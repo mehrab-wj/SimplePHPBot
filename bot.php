@@ -48,7 +48,7 @@ $admins  = [66443035,0];
 //-------
 function SendMessage($ChatId, $TextMsg,$message_id = null,$parse_mode="MarkDown",$keyboard=null)
 {
-   makereq('sendMessage',[
+   return makereq('sendMessage',[
   'chat_id'=>$ChatId,
   'text'=>$TextMsg,
   'parse_mode'=>$parse_mode,
@@ -59,14 +59,14 @@ function SendMessage($ChatId, $TextMsg,$message_id = null,$parse_mode="MarkDown"
 }
 function SendSticker($ChatId, $sticker_ID)
 {
- makereq('sendSticker',[
+ return makereq('sendSticker',[
 'chat_id'=>$ChatId,
 'sticker'=>$sticker_ID
 ]);
 }
 function Forward($KojaShe,$AzKoja,$KodomMSG)
 {
-makereq('ForwardMessage',[
+return makereq('ForwardMessage',[
 'chat_id'=>$KojaShe,
 'from_chat_id'=>$AzKoja,
 'message_id'=>$KodomMSG
