@@ -1,4 +1,8 @@
-# SimplePHPBot
+# DEPRECATED
+This repo is DEPRECATED. I’m keeping it as a reminder of my earliest days in PHP. Please don’t bother reading it :)
+
+---
+## SimplePHPBot
 Simple Php Bot without using library !
 ## Need Webhook And SSL .
 
